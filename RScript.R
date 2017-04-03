@@ -1,5 +1,6 @@
-library(ggplot2)
 setwd("~/Desktop/Assignment upgrad/Baseball-Playoffs-Prediction/")
+library(ggplot2)
+library(caret)
 
 data <- read.csv("baseball_train.csv")
 class(data)
@@ -49,7 +50,7 @@ head(prediction)
 SSE <- sum((test$Playoffs - prediction)^2)
 SST <- sum((test$Playoffs - mean(test$Playoffs))^2)
 1 - SSE/SST
-library(caret)
+
 result <- confusionMatrix(prediction, test$Playoffs)
 result
 unique(prediction)
